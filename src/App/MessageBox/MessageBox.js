@@ -9,13 +9,22 @@ class MessageBox extends React.Component {
     super(props);
 
     this.state = {
-      moveCurrentSelected: props.playerPokemon.moves[0]
+      moveCurrentSelected: props.playerPokemon.moves[0],
+      moveCurrentSelectedIndex: 0,
+      actionCurrentSelected: 0  // 0:Attack; 1:Bag; 2:Pokemon; 3:Run;
     };
   }
 
   selectMove(moveIndex) {
     this.setState({
-      moveCurrentSelected: this.props.playerPokemon.moves[moveIndex]
+      moveCurrentSelected: this.props.playerPokemon.moves[moveIndex],
+      moveCurrentSelectedIndex: moveIndex
+    });
+  }
+
+  selectAction(actionIndex) {
+    this.setState({
+      actionCurrentSelected: actionIndex
     });
   }
 
@@ -37,6 +46,7 @@ class MessageBox extends React.Component {
             pokemonMoves={this.props.playerPokemon.moves}
             handleClickMove={this.props.handleClickMove}
             handleHoverMove={this.selectMove.bind(this)}
+            selectedMove={this.state.moveCurrentSelectedIndex}
           />
           <MoveInfo move={this.state.moveCurrentSelected} />
         </div>
