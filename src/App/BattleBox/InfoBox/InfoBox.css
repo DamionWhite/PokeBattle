@@ -1,0 +1,47 @@
+.InfoBox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 220px;
+  height: 3.5em;
+
+  border: 2px solid rgb(32, 32, 41);
+  border-radius: 8px;
+
+  border-top-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+
+  background-color: rgb(230, 235, 226);
+  color: rgb(30, 29, 34);
+  text-shadow: none;
+  box-shadow: 0px 0px 3px rgb(31, 31, 31);
+}
+
+.InfoBox > p {
+  /* max-width: calc(50% - 24px); */
+  display: inline-block;
+  margin-top: .3em;
+  margin-left: .8em;
+}
+
+.InfoBox:nth-child(1) {
+  top: unset;
+  left: unset;
+  bottom: 10px;
+  right: 10px;
+}
+
+.InfoBox:nth-child(2) {
+  height: 2.7em;
+}
+
+.pokemonLevel {
+  position: absolute;
+  right: 4px;
+}
+
+.pokemonHealth {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+}

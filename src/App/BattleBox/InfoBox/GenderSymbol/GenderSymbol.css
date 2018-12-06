@@ -1,0 +1,12 @@
+.GenderSymbol {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 900;
+}
+
+.GenderSymbol-male {
+  color: rgb(77, 103, 255);
+}
+
+.GenderSymbol-female {
+  color: rgb(255, 82, 82);
+}
