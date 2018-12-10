@@ -1,5 +1,6 @@
 import Move from './Move';
 import Pokemon from './Pokemon';
+import MoveInfo from '../App/MessageBox/MoveInfo/MoveInfo';
 
 let moves = [];
 
@@ -37,6 +38,24 @@ moves.push(new Move(
   120,
   100,
   10
+));
+
+moves.push(new Move(
+  'Thunderbolt',
+  Pokemon.types.electric,
+  Move.categories.special,
+  90,
+  100,
+  15
+));
+
+moves.push(new Move(
+  'Ember',
+  Pokemon.types.fire,
+  Move.categories.special,
+  40,
+  100,
+  25
 ));
 
 export default moves;

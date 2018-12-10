@@ -22,13 +22,13 @@ class App extends React.Component {
     document.addEventListener('contextmenu', event => event.preventDefault());
 
     let trainer = new Trainer('Snoek');
-    trainer.addPokemon(Pokemons[2]);
+    trainer.addPokemon(Pokemons[9]);
     trainer.addPokemon(Pokemons[1]);
 
     this.state.trainers[0] = trainer;
 
     trainer = new Trainer('Maarten');
-    trainer.addPokemon(Pokemons[8]);
+    trainer.addPokemon(Pokemons[4]);
     trainer.addPokemon(Pokemons[7]);
 
     this.state.trainers[1] = trainer;
@@ -74,6 +74,10 @@ class App extends React.Component {
     newPokemons[1].currentHealth = Math.floor(newPokemons[1].currentHealth - Pokemon.calcDamage(move, moveUser, moveTarget));
     if (newPokemons[1].currentHealth < 0) {
       newPokemons[1].currentHealth = 0;
+      this.setState({
+        activePokemons: newPokemons
+      });
+      return console.log(`${newPokemons[1].name} fainted.`);
     }
 
     this.setState({
@@ -81,6 +85,21 @@ class App extends React.Component {
     });
 
     // execute last move
+
+    // Charmeleon uses it's first move by default
+    newPokemons[1].moves[0].currentPowerPoints--;
+    newPokemons[0].currentHealth = Math.floor(newPokemons[0].currentHealth - Pokemon.calcDamage(newPokemons[1].moves[0], newPokemons[1], newPokemons[0]));
+    if (newPokemons[0].currentHealth < 0) {
+      newPokemons[0].currentHealth = 0;
+      this.setState({
+        activePokemons: newPokemons
+      });
+      return console.log(`${newPokemons[0].name} fainted.`);
+    }
+
+    this.setState({
+      activePokemons: newPokemons
+    });
 
     // reset view
     this.selectAction();

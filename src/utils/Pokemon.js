@@ -21,6 +21,7 @@ class Pokemon {
     grass: 'grass',
     fire: 'fire',
     water: 'water',
+    electric: 'electric',
   };
 
   addMove(move) {
@@ -33,6 +34,7 @@ class Pokemon {
   }
 
   static calcDamage(move, user, target) {
+    // https://bulbapedia.bulbagarden.net/wiki/Damage#Damage_calculation
     if (move.category === Move.categories.status) {
       return console.log('Status moves yet to be implemented');
     }
@@ -54,12 +56,12 @@ class Pokemon {
 
     // Physical or Special?
     if (move.category === Move.categories.physical) {
-      console.log('Physical Attack');
+      //console.log('Physical Attack');
       power = move.power;
       attack = user.attack;
       defense = target.defense;
     } else if (move.category === Move.categories.special) {
-      console.log('Special Attack');
+      //console.log('Special Attack');
       power = move.power;
       attack = user.specialAttack;
       defense = target.specialDefense;

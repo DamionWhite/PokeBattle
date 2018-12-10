@@ -76,6 +76,8 @@ Pokemons.push(new Pokemon(
   'm'
 ));
 
+Pokemons[4].addMove(moves[5]);
+
 Pokemons.push(new Pokemon(
   "Charizard",
   types.fire,
@@ -123,5 +125,20 @@ Pokemons.push(new Pokemon(
   78,
   'm'
 ));
+
+Pokemons.push(new Pokemon(
+  "Pikachu",
+  types.electric,
+  35,
+  55,
+  40,
+  50,
+  50,
+  90,
+  'f'
+));
+
+Pokemons[9].addMove(moves[0]);
+Pokemons[9].addMove(moves[4]);
 
 export default Pokemons;
