@@ -1,0 +1,17 @@
+{
+  "name": "pokebattle-dist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DamionWhite/PokeBattle.git",
+  "author": "Damion White <damion.dewit@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.8"
+  }
+}
