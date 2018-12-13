@@ -6,7 +6,7 @@
   "author": "Damion White <damion.dewit@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./server.js"
+    "start": "node_modules/.bin/nodemon ./server.js"
   },
   "dependencies": {
     "express": "^4.16.4"
