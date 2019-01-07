@@ -1,11 +1,12 @@
 import Pokemon from './Pokemon';
 import moves from './moves';
-const types = Pokemon.types;
+
+const { types } = Pokemon;
 
 var Pokemons = [];
 
 Pokemons.push(new Pokemon(
-  "Bulbasaur",
+  'Bulbasaur',
   types.grass,
   45,
   49,
@@ -13,14 +14,14 @@ Pokemons.push(new Pokemon(
   65,
   65,
   45,
-  'm'
+  'm',
 ));
 
 Pokemons[0].addMove(moves[0]);
 Pokemons[0].addMove(moves[1]);
 
 Pokemons.push(new Pokemon(
-  "Ivysaur",
+  'Ivysaur',
   types.grass,
   60,
   62,
@@ -28,7 +29,7 @@ Pokemons.push(new Pokemon(
   80,
   80,
   60,
-  'm'
+  'm',
 ));
 
 Pokemons[1].addMove(moves[0]);
@@ -36,7 +37,7 @@ Pokemons[1].addMove(moves[1]);
 Pokemons[1].addMove(moves[2]);
 
 Pokemons.push(new Pokemon(
-  "Venusaur",
+  'Venusaur',
   types.grass,
   80,
   82,
@@ -44,7 +45,7 @@ Pokemons.push(new Pokemon(
   100,
   100,
   80,
-  'm'
+  'm',
 ));
 
 Pokemons[2].addMove(moves[0]);
@@ -53,7 +54,7 @@ Pokemons[2].addMove(moves[2]);
 Pokemons[2].addMove(moves[3]);
 
 Pokemons.push(new Pokemon(
-  "Charmander",
+  'Charmander',
   types.fire,
   39,
   52,
@@ -61,11 +62,11 @@ Pokemons.push(new Pokemon(
   60,
   50,
   65,
-  'm'
+  'm',
 ));
 
 Pokemons.push(new Pokemon(
-  "Charmeleon",
+  'Charmeleon',
   types.fire,
   58,
   64,
@@ -73,11 +74,11 @@ Pokemons.push(new Pokemon(
   80,
   65,
   80,
-  'm'
+  'm',
 ));
 
 Pokemons.push(new Pokemon(
-  "Charizard",
+  'Charizard',
   types.fire,
   78,
   84,
@@ -85,11 +86,11 @@ Pokemons.push(new Pokemon(
   109,
   85,
   100,
-  'm'
+  'm',
 ));
 
 Pokemons.push(new Pokemon(
-  "Squirtle",
+  'Squirtle',
   types.water,
   44,
   48,
@@ -97,11 +98,11 @@ Pokemons.push(new Pokemon(
   50,
   64,
   43,
-  'm'
+  'm',
 ));
 
 Pokemons.push(new Pokemon(
-  "Wartortle",
+  'Wartortle',
   types.water,
   59,
   63,
@@ -109,11 +110,11 @@ Pokemons.push(new Pokemon(
   65,
   80,
   58,
-  'm'
+  'm',
 ));
 
 Pokemons.push(new Pokemon(
-  "Blastoise",
+  'Blastoise',
   types.water,
   79,
   83,
@@ -121,7 +122,7 @@ Pokemons.push(new Pokemon(
   85,
   105,
   78,
-  'm'
+  'm',
 ));
 
 export default Pokemons;

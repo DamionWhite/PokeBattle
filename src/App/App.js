@@ -8,15 +8,17 @@ import Move from '../utils/Move';
 import Pokemon from '../utils/Pokemon';
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       trainers: Array(2),
       activePokemons: Array(2),
-      currentAction: 'selectingAction'
+      currentAction: 'selectingAction',
     };
+
+    this.selectMove = this.selectMove.bind(this);
+    this.useMove = this.useMove.bind(this);
 
     //  Disable context menu on Right Click
     document.addEventListener('contextmenu', event => event.preventDefault());
@@ -39,13 +41,13 @@ class App extends React.Component {
 
   selectMove() {
     this.setState({
-      currentAction: 'selectingMove'
+      currentAction: 'selectingMove',
     });
   }
 
   selectAction() {
     this.setState({
-      currentAction: 'selectingAction'
+      currentAction: 'selectingAction',
     });
   }
 
@@ -56,28 +58,30 @@ class App extends React.Component {
       return;
     }
 
-    let moveUser = this.state.activePokemons[0];
-    let moveTarget = this.state.activePokemons[1];
+    const moveUser = this.state.activePokemons[0];
+    const moveTarget = this.state.activePokemons[1];
 
     // console.log(move);
     // console.log(moveUser);
     // console.log(moveTarget);
 
-    let newPokemons = this.state.activePokemons;
+    const newPokemons = this.state.activePokemons;
 
     // Enemy chooses random move
 
     // Decide who acts first
 
     // execute first move
-    newPokemons[0].moves[moveIndex].currentPowerPoints--;
-    newPokemons[1].currentHealth = Math.floor(newPokemons[1].currentHealth - Pokemon.calcDamage(move, moveUser, moveTarget));
+    newPokemons[0].moves[moveIndex].currentPowerPoints -= 1;
+    newPokemons[1].currentHealth = Math.floor(
+      newPokemons[1].currentHealth - Pokemon.calcDamage(move, moveUser, moveTarget),
+    );
     if (newPokemons[1].currentHealth < 0) {
       newPokemons[1].currentHealth = 0;
     }
 
     this.setState({
-      activePokemons: newPokemons
+      activePokemons: newPokemons,
     });
 
     // execute last move
@@ -87,15 +91,16 @@ class App extends React.Component {
   }
 
   render() {
+    const { activePokemons, currentAction } = this.state;
 
     return (
-      <div id='App'>
-        <BattleBox activePokemons={this.state.activePokemons} />
+      <div id="App">
+        <BattleBox activePokemons={activePokemons} />
         <MessageBox
-          playerPokemon={this.state.activePokemons[0]}
-          currentAction={this.state.currentAction}
-          handleClickAttack={this.selectMove.bind(this)}
-          handleClickMove={this.useMove.bind(this)}
+          playerPokemon={activePokemons[0]}
+          currentAction={currentAction}
+          handleClickAttack={this.selectMove}
+          handleClickMove={this.useMove}
         />
       </div>
     );

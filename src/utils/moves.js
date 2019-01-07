@@ -9,7 +9,7 @@ moves.push(new Move(
   Move.categories.physical,
   50,
   100,
-  35
+  35,
 ));
 
 moves.push(new Move(
@@ -18,7 +18,7 @@ moves.push(new Move(
   Move.categories.physical,
   45,
   100,
-  25
+  25,
 ));
 
 moves.push(new Move(
@@ -27,7 +27,7 @@ moves.push(new Move(
   Move.categories.physical,
   90,
   100,
-  15
+  15,
 ));
 
 moves.push(new Move(
@@ -36,7 +36,7 @@ moves.push(new Move(
   Move.categories.special,
   120,
   100,
-  10
+  10,
 ));
 
 export default moves;

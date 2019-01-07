@@ -3,21 +3,23 @@ import './MoveSelection.css';
 
 class MoveSelection extends React.Component {
   render() {
-    let moveSelection = (
-      <div id='MoveSelection'>
-        {this.props.pokemonMoves.map((item, i) => {
+    const { pokemonMoves, selectedMove } = this.props;
+
+    const moveSelection = (
+      <div id="MoveSelection">
+        {pokemonMoves.map((item, i) => {
           let isSelected = '';
 
-          if (i === this.props.selectedMove) {
+          if (i === selectedMove) {
             isSelected = (
-              <span className='selector'>
-                >
+              <span className="selector">
+                {'>'}
               </span>
             );
           }
 
           return (
-            <div key={i}>
+            <div key={`${i}`}>
               {isSelected}
               <p
                 onClick={() => this.props.handleClickMove(item, i)}

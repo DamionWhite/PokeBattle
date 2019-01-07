@@ -1,4 +1,3 @@
-import Pokemons from './Pokemons';
 
 class Trainer {
   constructor(name) {

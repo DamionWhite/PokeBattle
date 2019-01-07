@@ -1,28 +1,23 @@
 import React from 'react';
 import './GenderSymbol.css';
 
-class GenderSymbol extends React.Component {
-
-
-  render() {
-    let gender;
-    if (this.props.gender === 'm') {
-      gender = (
-        <span className='GenderSymbol GenderSymbol-male'>♂</span>
-      )
-    }
-    else if (this.props.gender === 'f') {
-      gender = (
-        <span className='GenderSymbol GenderSymbol-female'>♀</span>
-      )
-    }
-    else {
-      gender = null;
-    }
-    return (
-      gender
+const GenderSymbol = function GenderSymbol(props) {
+  const { gender } = props;
+  let genderJSX;
+  if (gender === 'm') {
+    genderJSX = (
+      <span className="GenderSymbol GenderSymbol-male">♂</span>
     );
+  } else if (gender === 'f') {
+    genderJSX = (
+      <span className="GenderSymbol GenderSymbol-female">♀</span>
+    );
+  } else {
+    genderJSX = null;
   }
-}
+  return (
+    genderJSX
+  );
+};
 
 export default GenderSymbol;

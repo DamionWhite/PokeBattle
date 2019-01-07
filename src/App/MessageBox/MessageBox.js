@@ -11,46 +11,61 @@ class MessageBox extends React.Component {
     this.state = {
       moveCurrentSelected: props.playerPokemon.moves[0],
       moveCurrentSelectedIndex: 0,
-      actionCurrentSelected: 0  // 0:Attack; 1:Bag; 2:Pokemon; 3:Run;
+      actionCurrentSelected: 0 // 0:Attack; 1:Bag; 2:Pokemon; 3:Run;
     };
+
+    this.selectMove = this.selectMove.bind(this);
   }
 
   selectMove(moveIndex) {
+    const { playerPokemon } = this.props;
+    const { moves } = playerPokemon;
     this.setState({
-      moveCurrentSelected: this.props.playerPokemon.moves[moveIndex],
-      moveCurrentSelectedIndex: moveIndex
+      moveCurrentSelected: moves[moveIndex],
+      moveCurrentSelectedIndex: moveIndex,
     });
   }
 
   selectAction(actionIndex) {
     this.setState({
-      actionCurrentSelected: actionIndex
+      actionCurrentSelected: actionIndex,
     });
   }
 
   render() {
-    //console.log();
+    const {
+      currentAction, handleClickAttack, handleClickMove, playerPokemon,
+    } = this.props;
+
+    const {
+      moveCurrentSelected, moveCurrentSelectedIndex,
+    } = this.state;
+
+    const {
+      moves, name,
+    } = playerPokemon;
+
     let messageBox;
-    if (this.props.currentAction === 'selectingAction') {
+
+    if (currentAction === 'selectingAction') {
       messageBox = (
-        <div id='MessageBox' className='selectingAction'>
-          <p>What will {this.props.playerPokemon.name} do?</p>
-          <CommandMenu handleClickAttack={this.props.handleClickAttack} />
+        <div id="MessageBox" className="selectingAction">
+          <p>{`What will ${name} do?`}</p>
+          <CommandMenu handleClickAttack={handleClickAttack} />
         </div>
-      )
-    }
-    else if (this.props.currentAction === 'selectingMove') {
+      );
+    } else if (currentAction === 'selectingMove') {
       messageBox = (
-        <div id='MessageBox' className='selectingMove'>
+        <div id="MessageBox" className="selectingMove">
           <MoveSelection
-            pokemonMoves={this.props.playerPokemon.moves}
-            handleClickMove={this.props.handleClickMove}
-            handleHoverMove={this.selectMove.bind(this)}
-            selectedMove={this.state.moveCurrentSelectedIndex}
+            pokemonMoves={moves}
+            handleClickMove={handleClickMove}
+            handleHoverMove={this.selectMove}
+            selectedMove={moveCurrentSelectedIndex}
           />
-          <MoveInfo move={this.state.moveCurrentSelected} />
+          <MoveInfo move={moveCurrentSelected} />
         </div>
-      )
+      );
     }
 
     return messageBox;
